@@ -33,8 +33,8 @@ class FocusCameraProperty extends core.Property
         if ( target )
         {
             position = target[ getPosition ][ core.Position ];
-            setPosition.x = position.x - 320;
-            setPosition.y = position.y - 240;
+            setPosition.x = position.x;
+            setPosition.y = position.y;
             entity[ setPosition ];
             
             rotation = target[ getRotation ][ core.Rotation ];

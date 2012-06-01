@@ -82,7 +82,7 @@ class BattleIntro extends state.GameState
 		ship[ game.SetSpriteset( spriteset ) ];
         updateManager.addEntity( ship );
 		renderManager.addEntity( ship );
-        battleController.addPlayerEntity( ship );
+        //battleController.addPlayerEntity( ship );
         
         
         ship = gameEntityFactory.createEntity( "PlayerShip" );

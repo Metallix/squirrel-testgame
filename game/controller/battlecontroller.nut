@@ -47,7 +47,7 @@ class BattleController
     {
         foreach ( index, entity in players )
         {
-            entity[ core.SetPosition( index * 200, 0 ) ];
+            entity[ core.SetPosition( 100 + index * 200, 0 ) ];
         }
     }
     

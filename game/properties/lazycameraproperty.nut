@@ -50,7 +50,7 @@ class LazyCameraProperty extends core.ContextProperty
     
     function setCameraMatrix()
     {
-        renderManager.cameraMatrix.setTranslation( -current.position.x, -current.position.y );
+        renderManager.worldMatrix.setTranslation( current.position.x, current.position.y );
         renderManager.cameraMatrix.setScale( current.scale.x, current.scale.y );
         renderManager.cameraMatrix.setRotation( current.rotation );
     }
@@ -58,8 +58,8 @@ class LazyCameraProperty extends core.ContextProperty
 
 LazyCameraProperty[ core.SetPosition ] <- function ( message )
 {
-    target.position.x = message.x;
-    target.position.y = message.y;
+    target.position.x = - message.x;
+    target.position.y = - message.y;
 }
 
 LazyCameraProperty[ core.SetScale ] <- function ( message )
@@ -70,7 +70,7 @@ LazyCameraProperty[ core.SetScale ] <- function ( message )
 
 LazyCameraProperty[ core.SetRotation ] <- function ( message )
 {
-    target.rotation = message.degrees * Math.PI / 180.0;
+    target.rotation = - message.degrees * Math.PI / 180.0;
 }
 
 LazyCameraProperty[ core.Update ] <- function ( message )

@@ -92,16 +92,17 @@ class SpriteSet
 		currentFrame = ( time / 150 ) % modes[ currentMode ].len();
 	}
 	
-	function render( t, m )
+	function render( t, camera, world )
 	{
-		time += t;
+        time += t;
         
+        local m = camera * world * matrix;
         local w = frameWidth;
 		local h = frameHeight;
-        p1 = Vec2( 0, 0 ).transform( m * matrix );
-        p2 = Vec2( w, 0 ).transform( m * matrix );
-        p3 = Vec2( w, h ).transform( m * matrix );
-        p4 = Vec2( 0, h ).transform( m * matrix );
+        p1 = Vec2( 0, 0 ).transform( m );
+        p2 = Vec2( w, 0 ).transform( m );
+        p3 = Vec2( w, h ).transform( m );
+        p4 = Vec2( 0, h ).transform( m );
         
 		drawFrame( modes[ currentMode ][ currentFrame ] );
 	}
