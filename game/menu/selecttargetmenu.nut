@@ -6,6 +6,7 @@ RequireScript( "/data/game/menu/menu" );
 RequireScript( "/data/core/properties/position" );
 RequireScript( "/data/core/message/getposition" );
 RequireScript( "/data/game/message/keydown" );
+RequireScript( "/data/game/battle/selecttargetbattleaction" );
 
 namespace( "game", function()
 {
@@ -64,7 +65,8 @@ SelectTargetMenu[ game.KeyDown ] <- function( message )
             selectIndex( ( --selectedData.index + targetEntities.len() ) % targetEntities.len() );
             break;
         case getconsttable().InputKeys.OK:
-            player[ game.AddAction( selectedItem.action ) ];
+            player[ game.SetBattleTarget( selectedData.entity ) ];
+            player[ game.SetBattleAction( game.SelectTargetBattleAction() ) ];
             dispatcher( game.BattleMenuClosed() );
             dispatcher( game.CloseMenu() );
             break;

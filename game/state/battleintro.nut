@@ -69,8 +69,6 @@ class BattleIntro extends state.GameState
         spriteset.createFromImage( Canvas.FromFile( "/data/resources/bat.png"), 128, 128 );
         spriteset.setPivot( Vec2( 64, 64 ) );
 		ship[ game.SetSpriteset( spriteset ) ];
-        updateManager.addEntity( ship );
-		renderManager.addEntity( ship );
         battleController.addPlayerEntity( ship );
         
         
@@ -80,9 +78,7 @@ class BattleIntro extends state.GameState
         spriteset.createFromImage( Canvas.FromFile( "/data/resources/bat.png"), 128, 128 );
         spriteset.setPivot( Vec2( 64, 64 ) );
 		ship[ game.SetSpriteset( spriteset ) ];
-        updateManager.addEntity( ship );
-		renderManager.addEntity( ship );
-        //battleController.addPlayerEntity( ship );
+        battleController.addPlayerEntity( ship );
         
         
         ship = gameEntityFactory.createEntity( "PlayerShip" );
@@ -91,8 +87,6 @@ class BattleIntro extends state.GameState
         spriteset.createFromImage( Canvas.FromFile( "/data/resources/bat.png"), 128, 128 );
         spriteset.setPivot( Vec2( 64, 64 ) );
 		ship[ game.SetSpriteset( spriteset ) ];
-        updateManager.addEntity( ship );
-		renderManager.addEntity( ship );
         battleController.addPlayerEntity( ship );
         
         cameraPosition = 100;

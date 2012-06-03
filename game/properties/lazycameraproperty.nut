@@ -38,7 +38,7 @@ class LazyCameraProperty extends core.ContextProperty
         current.position.y = getLazyValue( current.position.y, target.position.y, t );
         current.scale.x = getLazyValue( current.scale.x, target.scale.x, t );
         current.scale.y = getLazyValue( current.scale.y, target.scale.y, t );
-        current.rotation = getLazyValue( current.rotation, target.rotation, t );
+        current.rotation = getLazyValue( current.rotation, target.rotation, t ) % 360;
         
         setCameraMatrix();
     }
@@ -49,10 +49,12 @@ class LazyCameraProperty extends core.ContextProperty
     }
     
     function setCameraMatrix()
-    {
-        renderManager.worldMatrix.setTranslation( current.position.x, current.position.y );
-        renderManager.cameraMatrix.setScale( current.scale.x, current.scale.y );
-        renderManager.cameraMatrix.setRotation( current.rotation );
+    {        
+        renderManager.cameraMatrix
+            .identity()
+            .translate( 320, 240 )
+            .rotate( current.rotation )
+            .translate( current.position.x, current.position.y );
     }
 }
 
@@ -70,6 +72,9 @@ LazyCameraProperty[ core.SetScale ] <- function ( message )
 
 LazyCameraProperty[ core.SetRotation ] <- function ( message )
 {
+    message.degrees = ( ( message.degrees % 360 ) + 360 ) % 360;
+    if ( message.degrees > - current.rotation / Math.PI * 180.0 + 180 ) message.degrees -= 360;
+    if ( message.degrees < - current.rotation / Math.PI * 180.0 - 180 ) message.degrees += 360;
     target.rotation = - message.degrees * Math.PI / 180.0;
 }
 

@@ -1,8 +1,8 @@
-RequireScript( "/data/game/battle/selecttargetbattleaction" );
+RequireScript( "/data/game/battle/battleaction" );
 
 namespace( "game", function()
 {
-class SelectTargetBattleAction
+class SelectTargetBattleAction extends game.BattleAction
 {
     time = null;
 

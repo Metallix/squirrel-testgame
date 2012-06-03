@@ -4,12 +4,10 @@ class Render
 {
 	time = 0;
     cameraMatrix = null
-    worldMatrix = null;
-	constructor( t, c = null, w = null )
+	constructor( t, c = null )
 	{
 		time = t;
         cameraMatrix = c;
-        worldMatrix = w
 	}
 }
 });

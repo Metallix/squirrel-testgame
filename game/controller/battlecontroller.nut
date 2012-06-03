@@ -24,6 +24,10 @@ class BattleController
     context = null;
     </ Inject = "MessageDispatcher" />
     dispatcher = null;
+    </ Inject = "updateManager" />
+	updateManager = null;
+    </ Inject = "renderManager" />
+    renderManager = null;
     
     players = null;
     playerSlots = null;
@@ -39,8 +43,17 @@ class BattleController
     
     function addPlayerEntity( e )
     {
+        updateManager.addEntity( e );
+		renderManager.addEntity( e );
         players.push( e );
         e[core.AddToContext( context )];
+    }
+    
+    function removePlayerEntity( e )
+    {
+        players.remove( players.find( e ) );
+        updateManager.removeEntity( e );
+		renderManager.removeEntity( e );
     }
     
     function applyInitialPlayerFormation()
@@ -102,4 +115,8 @@ BattleController[ game.BattleMenuClosed ] <- function ( message )
     state = BattleState.IDLE
 }
 
+BattleController[ game.BattleEntityDestroyed ] <- function ( message )
+{
+    removePlayerEntity( message.entity );
+}
 });

@@ -22,7 +22,7 @@ namespace( "core", function(){
 			result = {};
 			foreach ( property in properties )
 			{
-				result[ property.getclass() ] <- property.processMessage( message );
+                result[ property.getclass() ] <- property.processMessage( message );
 			}
 			return result;
 		}

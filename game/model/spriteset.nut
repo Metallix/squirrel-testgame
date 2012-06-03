@@ -92,11 +92,11 @@ class SpriteSet
 		currentFrame = ( time / 150 ) % modes[ currentMode ].len();
 	}
 	
-	function render( t, camera, world )
+	function render( t, camera )
 	{
         time += t;
         
-        local m = camera * world * matrix;
+        local m = camera * matrix;
         local w = frameWidth;
 		local h = frameHeight;
         p1 = Vec2( 0, 0 ).transform( m );
@@ -111,7 +111,7 @@ class SpriteSet
 	{
 		local w = texture.width;
 		local h = texture.height;
-		if ( position.x > -w && position.x < windowWidth && position.y > -h && position.y < windowHeight )
+		if ( p1.x > -w && p1.x < windowWidth && p1.y > -h && p1.y < windowHeight )
 		{
 			drawFramePart( texture, 0, 0, w, h );
 		}

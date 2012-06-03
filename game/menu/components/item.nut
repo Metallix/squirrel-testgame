@@ -43,7 +43,6 @@ class Item
             }
             fadeAlpha = 10 * fadeInProgress;
             rectangleColor = (rectangleColor & 0xFFFFFF00) | fadeAlpha.tointeger();
-            utils.debugLog.info( rectangleColor );
         }
     }
     

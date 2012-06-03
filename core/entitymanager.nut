@@ -14,5 +14,10 @@ class EntityManager
 		assert( entity, "addEntity called with null entity" );
         entities.push( entity );
 	}
+    
+    function removeEntity( entity )
+	{
+        entities.remove( entities.find( entity ) );
+	}
 }
 });

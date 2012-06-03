@@ -28,17 +28,17 @@ class InputController
     
     function registerKeyHandler()
     {
-        Kbd.space.onPress = function() { this.onPress( InputKeys.OK ) }.bindenv( this );
-        Kbd.left.onPress = function() { this.onPress( InputKeys.LEFT ) }.bindenv( this );
-        Kbd.right.onPress = function() { this.onPress( InputKeys.RIGHT ) }.bindenv( this );
-        Kbd.up.onPress = function() { this.onPress( InputKeys.UP ) }.bindenv( this );
-        Kbd.down.onPress = function() { this.onPress( InputKeys.DOWN ) }.bindenv( this );
+        Kbd.space   .onPress = function() { this.onPress( InputKeys.OK      ) }.bindenv( this );
+        Kbd.left    .onPress = function() { this.onPress( InputKeys.LEFT    ) }.bindenv( this );
+        Kbd.right   .onPress = function() { this.onPress( InputKeys.RIGHT   ) }.bindenv( this );
+        Kbd.up      .onPress = function() { this.onPress( InputKeys.UP      ) }.bindenv( this );
+        Kbd.down    .onPress = function() { this.onPress( InputKeys.DOWN    ) }.bindenv( this );
         
-        Kbd.space.onRelease = function() { this.onRelease( InputKeys.OK ) }.bindenv( this );
-        Kbd.left.onRelease = function() { this.onRelease( InputKeys.LEFT ) }.bindenv( this );
-        Kbd.right.onRelease = function() { this.onRelease( InputKeys.RIGHT ) }.bindenv( this );
-        Kbd.up.onRelease = function() { this.onRelease( InputKeys.UP ) }.bindenv( this );
-        Kbd.down.onRelease = function() { this.onRelease( InputKeys.DOWN ) }.bindenv( this );
+        Kbd.space   .onRelease = function() { this.onRelease( InputKeys.OK      ) }.bindenv( this );
+        Kbd.left    .onRelease = function() { this.onRelease( InputKeys.LEFT    ) }.bindenv( this );
+        Kbd.right   .onRelease = function() { this.onRelease( InputKeys.RIGHT   ) }.bindenv( this );
+        Kbd.up      .onRelease = function() { this.onRelease( InputKeys.UP      ) }.bindenv( this );
+        Kbd.down    .onRelease = function() { this.onRelease( InputKeys.DOWN    ) }.bindenv( this );
     }
     
     function onPress( key )

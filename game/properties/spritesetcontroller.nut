@@ -54,6 +54,6 @@ SpritesetController[ core.SetRotation ] <- function( message )
 
 SpritesetController[ core.Render ] <- function( message )
 {
-    spriteset.render( message.time, message.cameraMatrix, message.worldMatrix );
+    spriteset.render( message.time, message.cameraMatrix );
 }
 });
