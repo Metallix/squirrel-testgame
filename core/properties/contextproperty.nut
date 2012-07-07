@@ -6,16 +6,17 @@ namespace( "core", function()
 {
 class ContextProperty extends core.Property
 {
+    dynamicObject = null;
 }
 
 ContextProperty[ core.AddToContext ] <- function ( message )
 {
-    message.context.addDynamicObject( this );
+    dynamicObject = message.context.addDynamicObject( this );
 }
 
 ContextProperty[ core.RemoveFromContext ] <- function ( message )
 {
-    message.context.removeDynamicObject( this );
+    message.context.removeDynamicObject( dynamicObject );
 }
 
 });

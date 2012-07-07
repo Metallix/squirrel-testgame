@@ -5,7 +5,7 @@ RequireScript("/data/assert");
 RequireScript("/data/namespace");
 RequireScript("/data/state");
 RequireScript("/data/core/context");
-RequireScript("/data/game/gamecontext");
+RequireScript("/data/seagame/context/seagamecontext");
 
 
 function Game::init(args) {
@@ -13,6 +13,6 @@ function Game::init(args) {
     Game.setWindowMode( 640, 480, false);
 	Game.setFrameRate( 60 );
 
-	local context = game.GameContext();
+	local context = seagame.SeaGameContext();
 	context.build();
 }

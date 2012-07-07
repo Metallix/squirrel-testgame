@@ -12,7 +12,8 @@ class SpriteSet
     rotation = 0;
     position = Vec2( 0, 0 );
     pivot = Vec2( 0, 0 );
-	
+	mask = 0xFFFFFFFF;
+    
 	windowWidth = GetWindowWidth();
 	windowHeight = GetWindowHeight();
     
@@ -111,10 +112,8 @@ class SpriteSet
 	{
 		local w = texture.width;
 		local h = texture.height;
-		if ( p1.x > -w && p1.x < windowWidth && p1.y > -h && p1.y < windowHeight )
-		{
-			drawFramePart( texture, 0, 0, w, h );
-		}
+		
+        drawFramePart( texture, 0, 0, w, h );
 	}
 	
 	function drawFramePart( texture, tx, ty, w, h )
@@ -126,7 +125,8 @@ class SpriteSet
 			tx    , ty + h,
 			p1.x  , p1.y,
 			p2.x  , p2.y,
-			p4.x  , p4.y );
+			p4.x  , p4.y,
+            mask );
 		DrawTexturedTriangle(
 			texture,
 			tx + w, ty,
@@ -134,7 +134,8 @@ class SpriteSet
 			tx    , ty + h,
 			p2.x  , p2.y,
 			p3.x  , p3.y,
-			p4.x  , p4.y );
+			p4.x  , p4.y,
+            mask );
 	}
 }
 });

@@ -53,7 +53,8 @@ class LazyCameraProperty extends core.ContextProperty
         renderManager.cameraMatrix
             .identity()
             .translate( 320, 240 )
-            .rotate( current.rotation )
+            .rotate( current.rotation )
+            .scale( current.scale.x, current.scale.y )
             .translate( current.position.x, current.position.y );
     }
 }

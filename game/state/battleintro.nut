@@ -89,6 +89,10 @@ class BattleIntro extends state.GameState
 		ship[ game.SetSpriteset( spriteset ) ];
         battleController.addPlayerEntity( ship );
         
+        // bulletManager.addGroup( "player" );
+        // bullets = gameEntityFactory.createEntity( "Bullets" );
+        // bullets[ ::bullets.SetBulletManager( bulletManager ) ];
+        
         cameraPosition = 100;
     }
 }

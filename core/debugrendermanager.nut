@@ -6,6 +6,7 @@ namespace( "render", function()
 class DebugRenderManager extends core.EntityManager
 {
 	renderMessage = null;
+    node = null;
 	constructor()
 	{
 		base.constructor();
@@ -15,10 +16,12 @@ class DebugRenderManager extends core.EntityManager
 	function render( t )
 	{
 		renderMessage.time = t;
-		foreach ( e in entities )
-		{
-			e[ renderMessage ];
-		}
+		node = startNode;
+        while( node )
+        {
+            node.entity[ renderMessage ];
+            node = node.next;
+        }
 	}
 }
 });

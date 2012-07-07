@@ -28,11 +28,6 @@ class GameContext extends core.Context
 	
 	gameEntityFactory = game.EntityFactory();
 	
-	flightState = state.FlightState();
-	sphereIntro = state.SphereIntro();
-    battleIntro = state.BattleIntro();
-	levelState = game.LevelState();
-	
 	gameLoop = game.GameLoop();
     
     bulletManager = bullets.BulletManager();

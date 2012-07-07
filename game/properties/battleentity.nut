@@ -17,6 +17,8 @@ class BattleEntity extends core.ContextProperty
 {
     </ Inject = "MessageDispatcher" />
     dispatcher = null;
+    </ Inject = "Context" />
+    context = null;
 
     target = null;
     action = null;
@@ -35,9 +37,10 @@ class BattleEntity extends core.ContextProperty
         }
         else
         {
-            action.update( time );
-            if ( action.isComplete() )
+            action.instance.update( time );
+            if ( action.instance.isComplete() )
             {
+                context.removeDynamicObject( action );
                 action = null;
             }
         }
@@ -75,9 +78,13 @@ BattleEntity[ game.GetBattleActionList ] <- function ( message )
 
 BattleEntity[ game.SetBattleAction ] <- function ( message )
 {
-    action = message.action;
-    action.target = target;
-    action.player = entity;
+    if ( action )
+    {
+        context.removeDynamicObject( action );
+    }
+    action = context.addDynamicObject( message.action );
+    action.instance.target = target;
+    action.instance.player = entity;
 }
 
 BattleEntity[ game.SetBattleTarget ] <- function ( message )

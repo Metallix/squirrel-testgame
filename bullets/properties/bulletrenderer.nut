@@ -2,6 +2,7 @@ RequireScript( "/data/core/property" );
 RequireScript( "/data/bullets/message/setbulletmanager" );
 RequireScript( "/data/core/message/render" );
 RequireScript( "/data/core/message/update" );
+
 namespace( "bullets", function()
 {
 class BulletRenderer extends core.Property

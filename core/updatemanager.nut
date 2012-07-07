@@ -6,7 +6,8 @@ namespace( "update", function()
 class UpdateManager extends core.EntityManager
 {
 	updateMessage = null;
-	constructor()
+	node = null;
+    constructor()
 	{
 		base.constructor();
 		updateMessage = core.Update( 0 );
@@ -15,10 +16,12 @@ class UpdateManager extends core.EntityManager
 	function update( t )
 	{
 		updateMessage.time = t;
-		foreach ( e in entities )
-		{
-			e[updateMessage];
-		}
+		node = startNode;
+        while( node )
+        {
+            node.entity[ updateMessage ];
+            node = node.next;
+        }
 	}
 }
 });

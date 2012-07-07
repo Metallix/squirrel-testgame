@@ -8,6 +8,7 @@ class RenderManager extends core.EntityManager
 {
 	renderMessage = null;
     cameraMatrix = math.Matrix33().identity();
+    node = null;
     
 	constructor()
 	{
@@ -19,10 +20,12 @@ class RenderManager extends core.EntityManager
 	{
 		renderMessage.time = t;
         renderMessage.cameraMatrix = cameraMatrix;
-		foreach ( e in entities )
-		{
-			e[ renderMessage ];
-		}
+		node = startNode;
+        while( node )
+        {
+            node.entity[ renderMessage ];
+            node = node.next;
+        }
 	}
 }
 });

@@ -4,6 +4,9 @@ namespace( "game", function()
 {
 class MoveShootBattleAction extends game.BattleAction
 {    
+    </ Inject = "bulletManager" />
+    bulletManager = null;
+    
     state = null;
     progress = null;
     length = 10000;

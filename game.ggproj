@@ -1,0 +1,12 @@
+
+{
+	"Description" : "",
+	"EntryPoint" : "main.ggs",
+	"Name" : "Sandbox",
+	"Window" : 
+	{
+		"FullScreen" : false,
+		"Height" : 480,
+		"Width" : 640
+	}
+}
